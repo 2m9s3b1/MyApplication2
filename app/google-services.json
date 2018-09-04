@@ -1,0 +1,135 @@
+{
+  "project_info": {
+    "project_number": "770264077588",
+    "firebase_url": "https://carpool-612-2.firebaseio.com",
+    "project_id": "carpool-612-2",
+    "storage_bucket": "carpool-612-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770264077588:android:0c8eb684b83c3d69",
+        "android_client_info": {
+          "package_name": "com.example.lg.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770264077588-cvo6f8msr994pepc58nju8u92oj9m70a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmpTVJ6E4R44xdPgUn_NnOMUHwjdeyp2s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770264077588:android:2889d4d8c9335bd0",
+        "android_client_info": {
+          "package_name": "com.example.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770264077588-cvo6f8msr994pepc58nju8u92oj9m70a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmpTVJ6E4R44xdPgUn_NnOMUHwjdeyp2s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770264077588:android:d5a6fba6d0b90887",
+        "android_client_info": {
+          "package_name": "com.example.isl.dbtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770264077588-cvo6f8msr994pepc58nju8u92oj9m70a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmpTVJ6E4R44xdPgUn_NnOMUHwjdeyp2s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770264077588:android:1afbe45c50073827",
+        "android_client_info": {
+          "package_name": "com.example.user.carpool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770264077588-cvo6f8msr994pepc58nju8u92oj9m70a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmpTVJ6E4R44xdPgUn_NnOMUHwjdeyp2s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
