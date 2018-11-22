@@ -45,7 +45,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+        drawerLayout = findViewById(R.id.drawer);
 
         tool_bar = findViewById(R.id.toolbar);
         setSupportActionBar(tool_bar); // 툴바를 액션바로 대체
@@ -68,17 +68,12 @@ public class Main2Activity extends AppCompatActivity {
         mainlist.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
-                EditText contentTextview = (EditText) findViewById(R.id.drawer_content);
-
                 switch (position) {
                     case 0 :
                         Intent myIntent = new Intent(getApplicationContext(), profile.class);
                         startActivity(myIntent);
                     case 1:
-                        contentTextview.setText("2");
-                    case 2:
-                        contentTextview.setText("3");
+                    case 2 :
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
