@@ -83,8 +83,6 @@ public class RegistActivity extends AppCompatActivity {
                             } catch(Exception e) {
                                 Toast.makeText(getApplicationContext(),"다시 확인해주세요." ,Toast.LENGTH_SHORT).show();
                             }
-
-                            Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -132,7 +130,6 @@ public class RegistActivity extends AppCompatActivity {
         mailtext = mail.getText().toString();
         phonetext = phone.getText().toString();
 
-
         //submit 버튼 눌렀을 때
         submit.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
@@ -145,7 +142,6 @@ public class RegistActivity extends AppCompatActivity {
                 mailtext = mail.getText().toString();
                 phonetext = phone.getText().toString();
                 corpwtext = cor_pw.getText().toString();
-
 
                 //비밀번호 일치 확인
                 if (!passtext.equals(corpwtext)) {
@@ -177,15 +173,14 @@ public class RegistActivity extends AppCompatActivity {
                 if (!Pattern.matches("^01(0|1|[6-9])-(?:\\d{3,4})-(?:\\d{4})$", phonetext)) {
                     Phone_Check.setText("핸드폰 번호 형식이 아닙니다.");
                     check3 = 1;
+
                 } else {
                     Phone_Check.setText("");
                     check3 = 0; }
 
                     //성별 입력 확인
                 if (gender == 0) {
-                    Toast.makeText(getApplicationContext(), "성별을 체크하세요.", Toast.LENGTH_LONG).show();
-                }
-
+                    Toast.makeText(getApplicationContext(), "성별을 체크하세요.", Toast.LENGTH_LONG).show(); }
 
                 if (check == 0 && check3 == 0) {
                     createUser(mail.getText().toString(), pass.getText().toString());
