@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -67,6 +68,12 @@ public class RegistActivity extends AppCompatActivity {
                             mail.setText("");
                             phone.setText("");
 
+                            mUser = FirebaseAuth.getInstance().getCurrentUser();
+
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(nicktext)
+                                    .build();
+
                             Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
                             finish();                     // 여기까지 실행이 완료되면 액티비티 자동 종료
 
@@ -111,8 +118,7 @@ public class RegistActivity extends AppCompatActivity {
 
         //radio button 눌렀을 때
         radiogroup = (RadioGroup) findViewById(R.id.raidogroup);
-        radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected

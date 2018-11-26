@@ -16,7 +16,6 @@ public class profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        String profile;
         TextView username = findViewById(R.id.username);
         TextView email2 = findViewById(R.id.email);
 
@@ -24,7 +23,6 @@ public class profile extends AppCompatActivity {
         if (user != null) {
             String name = user.getDisplayName();
             String email = user.getEmail();
-            String uid = user.getUid();
 
             username.setText(name);
             email2.setText(email);

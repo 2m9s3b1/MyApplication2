@@ -19,7 +19,9 @@
         <activity android:name=".RegistActivity" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".FindActivity" />
-        <activity android:name=".profile"></activity>
+        <activity android:name=".profile" />
+        <activity android:name=".InfoWrite" />
+        <activity android:name=".BoardWrite"></activity>
     </application>
 
 </manifest>
