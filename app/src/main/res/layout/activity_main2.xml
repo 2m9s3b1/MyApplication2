@@ -54,13 +54,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
-            android:layout_weight="0.02">// 정렬
+            android:layout_weight="0.01">// 정렬
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:entries="@array/우선순위"></Spinner>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.02">
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="글 작성"
+                android:background="#00ff0000"
+                android:id="@+id/write"/>
 
         </LinearLayout>
 

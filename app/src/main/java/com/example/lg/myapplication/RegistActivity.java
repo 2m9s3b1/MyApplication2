@@ -36,7 +36,7 @@ public class RegistActivity extends AppCompatActivity {
     Button submit;
     EditText id, pass, name, nick, mail, phone, cor_pw;
     TextView PW_Check, Email_Check, Phone_Check;
-    String idtext2, passtext, nametext, nicktext, mailtext, phonetext, corpwtext;
+    String passtext, nametext, nicktext, mailtext, phonetext, corpwtext;
     RadioGroup radiogroup;
     int gender=0;
 

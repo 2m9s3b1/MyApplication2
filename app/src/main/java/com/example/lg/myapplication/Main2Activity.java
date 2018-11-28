@@ -36,7 +36,7 @@ public class Main2Activity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
 
-    Button btn;
+    Button btn, write;
     TextView title, date, start, fin;
     Toolbar tool_bar;
 
@@ -57,11 +57,19 @@ public class Main2Activity extends AppCompatActivity {
         mainlist = (ListView) findViewById(R.id.main_list);
         mainlist.setAdapter(adapter);
 
-        btn = (Button) findViewById(R.id.btn);
+        btn = findViewById(R.id.btn);
+        write = findViewById(R.id.write);
 
         btn.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 drawerLayout.openDrawer(GravityCompat.END);
+            }
+        });
+
+        write.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent myIntent = new Intent(getApplicationContext(), InfoWrite.class);
+                startActivity(myIntent); // 액티비티 연결하는 코드
             }
         });
 
