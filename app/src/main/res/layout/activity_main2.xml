@@ -39,22 +39,41 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
-            android:layout_weight="0.1">
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="horizontal">
 
-            <TextView
+            <EditText
+                android:id="@+id/drawer_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="지도" />
+                android:layout_weight="0.8"
+                android:hint="Search"/>
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="Q"/>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="25dp"
+            android:layout_weight="0.3"
+            android:id="@+id/fragment_here">
+
+        </LinearLayout>
+
         // api 박을 곳
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
-            android:layout_weight="0.02">// 정렬
+            android:layout_weight="0.03">// 정렬
 
             <Spinner
                 android:id="@+id/spinner"
@@ -69,12 +88,12 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
             android:layout_marginTop="15dp"
-            android:layout_weight="0.04">
+            android:layout_weight="0.05">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:scrollbars="vertical" />
 
         </LinearLayout>

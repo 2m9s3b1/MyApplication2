@@ -2,5 +2,7 @@
     <string name="app_name">My Application</string>
     <string name="navigation_drawer_open">Drawer Open</string>
     <string name="navigation_drawer_close">Drawer Closed</string>
+    <string name="label_name"> first_CARPOOL</string>
+    <string name="str_done">완료</string>
 
 </resources>

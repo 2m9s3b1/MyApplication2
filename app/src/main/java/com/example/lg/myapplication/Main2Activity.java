@@ -1,6 +1,9 @@
 package com.example.lg.myapplication;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -27,7 +30,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity extends AppCompatActivity  {
 
     private final String[] items = {"프로필", "마이페이지", "채팅"};
     private ListView mainlist;
@@ -40,12 +43,20 @@ public class Main2Activity extends AppCompatActivity {
     TextView title, date, start, fin;
     Toolbar tool_bar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        Fragment1 fragment1 = new Fragment1();
+        fragment1.setArguments(new Bundle());
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.add(R.id.fragment_here, fragment1);
+        fragmentTransaction.commit();
 
-        drawerLayout = findViewById(R.id.drawer);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+
 
         tool_bar = findViewById(R.id.toolbar);
         setSupportActionBar(tool_bar); // 툴바를 액션바로 대체
@@ -68,12 +79,17 @@ public class Main2Activity extends AppCompatActivity {
         mainlist.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
+
+                EditText contentTextview = (EditText) findViewById(R.id.drawer_content);
+
                 switch (position) {
                     case 0 :
                         Intent myIntent = new Intent(getApplicationContext(), profile.class);
                         startActivity(myIntent);
                     case 1:
-                    case 2 :
+                        contentTextview.setText("2");
+                    case 2:
+                        contentTextview.setText("3");
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);

@@ -14,6 +14,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
+import com.gun0912.tedpermission.TedPermissionActivity;
 
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,6 +25,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseUser currentUser;
 
-    public void loginStart(String email, String password){
+
+   public void loginStart(String email, String password){
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -84,6 +90,13 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
 
+        TedPermission.with(this)
+                .setPermissionListener(permissionListener)
+                .setRationaleMessage("지도 서비스를 받기 위해서는 위치 서비스 권한이 필요합니다.")
+                .setDeniedMessage("왜 거부하셨어요...\n하지만 [설정] > [권한] 에서 권한을 허용할 수 있어요.")
+                .setPermissions("Manifest.permission.ACCESS_FINE_LOCATION ")
+                .check();
+
 
         login.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
@@ -119,4 +132,19 @@ public class MainActivity extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu, menu);
         return true;
     }
+    PermissionListener permissionListener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+            Toast.makeText( MainActivity.this, "권한 허가", Toast.LENGTH_SHORT ).show();
+        }
+
+        @Override
+        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+            Toast.makeText(MainActivity.this, "권한 거부\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+
+
+
+        }
+    };
+
 }
