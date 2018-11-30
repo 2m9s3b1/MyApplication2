@@ -1,6 +1,9 @@
 package com.example.lg.myapplication;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -10,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,9 +27,20 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -37,13 +52,17 @@ public class Main2Activity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
 
     Button btn, write;
-    TextView title, date, start, fin;
+    TextView title, date, start, fin, check;
     Toolbar tool_bar;
+
+    ArrayList<RecyclerItem> item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         drawerLayout = findViewById(R.id.drawer);
 
@@ -101,12 +120,37 @@ public class Main2Activity extends AppCompatActivity {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        ArrayList<RecyclerItem> item = new ArrayList<>();
-        item.add(new RecyclerItem("제목입니다.", "12/31", "인천", "대전"));
-        item.add(new RecyclerItem("학교 같이 다니실 분~", "9/4", "서울", "인천"));
+        item = new ArrayList<>();
 
-        mAdapter = new MyAdapter(item);
-        mRecyclerView.setAdapter(mAdapter);
+        db.collection("board")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            item.add(new RecyclerItem(document.getString("title"), document.getString("time"), "SP", "FP"));
+                            mAdapter = new MyAdapter(item);
+                            mRecyclerView.setAdapter(mAdapter);
+                        }
+                    }
+                });
+
+        /*
+        db.collection("board")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot task,
+                                        @Nullable FirebaseFirestoreException e) {
+                        for (QueryDocumentSnapshot document : task) {
+                            if (document.get("name") != null) {
+                                item.add(new RecyclerItem(document.getString("title"), document.getString("time"), "SP", "FP"));
+                            }
+                        }
+                    }
+                });
+         */
+
+ 
     }
 }
 
